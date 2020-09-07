@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/* Script that handles creation of X, Y, Z coordinate lines. Sets various
+ * properties like dimensions, position, etc...
+ */
 public class ObjectAxisController : MonoBehaviour
 {
     public GameObject parentObj;
@@ -12,11 +13,13 @@ public class ObjectAxisController : MonoBehaviour
     private readonly float width = 0.3f;
     private string axis;
 
-    void Awake()
+    // Initialization - called when script is loaded
+    private void Awake()
     {
         boxCollider = gameObject.AddComponent<BoxCollider>();
     }
 
+    // Draw a line based on input and sets default properties
     public void DrawAxis(string name, float lineLength)
     {
         axis = name;
@@ -26,6 +29,7 @@ public class ObjectAxisController : MonoBehaviour
         DrawLine(lineLength);
     }
 
+    // Set dimensions and positions of the drawn line and collider
     private void DrawLine(float lineLength)
     {
 
@@ -56,6 +60,7 @@ public class ObjectAxisController : MonoBehaviour
 
     }
 
+    // Set other default properties of drawn line
     private void SetLineProperties() 
     {
         lineRenderer = gameObject.AddComponent<LineRenderer>();
